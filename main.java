@@ -9,15 +9,14 @@ public class main {
     public static void readSubway(String way) {//从TXT中读入线路数据
         try {
             InputStreamReader reader = new InputStreamReader(new FileInputStream(way));
-            BufferedReader br = new BufferedReader(reader);
+            BufferedReader read1 = new BufferedReader(reader);
             String read = "";
-            read = br.readLine();//线路数量
+            read = read1.readLine();//线路数量
             int num = 0;
             num = Integer.parseInt(read);
-
             for (int i = 0; i <= num; i++) {
                 line line = new line();//当前存的路线
-                read = br.readLine();
+                read = read1.readLine();
                 if(read==null){
                     return;
                 }
@@ -63,7 +62,7 @@ public class main {
                 }
                 LineSet.add(line);//把线路加入LineSet
             }
-            br.close();
+            read1.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -218,7 +217,6 @@ public class main {
             Scanner Scanner1 = new Scanner(System.in);
             String linename = Scanner1.nextLine();
             searchline(linename);
-            
         }
         else if (input==2){
             System.out.print("start：");
